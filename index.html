@@ -15,12 +15,138 @@
 
     <!-- Jquery CDN 로드 : 항상 최신 버전 사용 -->
     <script  src="jquery-1.10.1.min.js"></script>
+    <script  src="html2canvas.js"></script>
+    
     <style>
 
         canvas{z-index: 999;
                 top: 1988px;
                 left: 333px;
             }
+   
+
+
+
+            #url_txt {   
+        /* 텍스트 가로 정렬 지정 */
+        text-align : center; 
+
+        /* 텍스트 색상 지정 */
+        color : #ffffff;
+
+        /* 텍스트 굵기 지정 */
+        font-weight : bold;
+               
+        /* 텍스트 사이즈 지정 */ 
+        font-size : 150%;
+
+        /* 텍스트 수직 정렬 실시 */
+        display : table-cell;
+        vertical-align : middle;
+      }
+
+
+
+
+      #picture_container {   
+        width : 70%;
+        height : 10%;
+        margin : 0 auto;
+        padding : 20px;
+        border : none;
+        background-color : #339933; 
+        margin-bottom: 20px;
+        /* 컨테이너 배치 정렬 실시 */
+        float : top;
+        position : relative; 
+        top : 14%;
+        left : 0%;
+         
+        /* 마우스 커서 스타일 지정 */
+        cursor : pointer;   
+
+        /* 브라우저에서 화면 터치 시 파란박스 하이라이트 제거 */
+        -webkit-tap-highlight-color : rgba(0,0,0,0);         
+
+        /* div 테두리 영역 둥글게 설정 : 각 모서리 모두 동일 적용 : 일반 설정 */
+        border-radius : 20px;
+
+        /* display 설정 : p 태그 수직 정렬 */
+		display : table;
+      }
+
+
+
+
+      #picture_txt {   
+        /* 텍스트 가로 정렬 지정 */
+        text-align : center; 
+
+        /* 텍스트 색상 지정 */
+        color : #ffffff;
+
+        /* 텍스트 굵기 지정 */
+        font-weight : bold;
+               
+        /* 텍스트 사이즈 지정 */ 
+        font-size : 150%;
+
+        /* 텍스트 수직 정렬 실시 */
+        display : table-cell;
+        vertical-align : middle;
+      }
+
+
+
+
+      #delete_container {   
+        width : 70%;
+        height : 10%;
+        margin : 0 auto;
+        padding : 20px;
+        border : none;
+        background-color : #ff00ff; 
+        margin-bottom:50px;
+        /* 컨테이너 배치 정렬 실시 */
+        float : top;
+        position : relative; 
+        top : 15%;
+        left : 0%;
+         
+        /* 마우스 커서 스타일 지정 */
+        cursor : pointer;   
+
+        /* 브라우저에서 화면 터치 시 파란박스 하이라이트 제거 */
+        -webkit-tap-highlight-color : rgba(0,0,0,0);         
+
+        /* div 테두리 영역 둥글게 설정 : 각 모서리 모두 동일 적용 : 일반 설정 */
+        border-radius : 20px;
+
+        /* display 설정 : p 태그 수직 정렬 */
+		display : table;
+      }
+
+
+
+
+      #delete_txt {   
+        /* 텍스트 가로 정렬 지정 */
+        text-align : center; 
+
+        /* 텍스트 색상 지정 */
+        color : #ffffff;
+
+        /* 텍스트 굵기 지정 */
+        font-weight : bold;
+               
+        /* 텍스트 사이즈 지정 */ 
+        font-size : 150%;
+
+        /* 텍스트 수직 정렬 실시 */
+        display : table-cell;
+        vertical-align : middle;
+      }   
+            
         
     </style>
 </head>
@@ -103,8 +229,6 @@ function tool_pencil() {
 }
 // Canvas요소 내의 좌표를 결정 한다.
 function ev_canvas(ev) {
-			ev.preventDefault();
-			ev.stopPropagation();
     if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
 	ev._x = ev.layerX;
 	ev._y = ev.layerY;
@@ -150,21 +274,40 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
 </script>
 
 <!-- html body 부분 -->
-<div style="padding-bottom:15px;width:100%;">
+<div style="padding-bottom:15px;width:100%;" id="imgSav">
     <img src="abcdef.png" alt="" srcset="">
-    <span style="font-weight:bold;">서명 후 꼭~ 우측 하단의 '저장' 버튼을 클릭해주세요.</span>
+    <span style="font-weight:bold;"></span>
     <br />
     <canvas id="drawCanvas" width="1300" height="350" style=" position: absolute;"></canvas>
     <br />
 </div>
-<button onclick="location.reload();">새로고침</button>
 
+<!-- 그림 저장 -->
+<div id = "picture_container" onclick = "savePicture(this);">
+    <p id = "picture_txt">그림 저장</p>	
+ </div>
+ 
+ <!-- 사인 지우기 -->
+ <div id = "delete_container" onclick="location.reload();">
+    <p id = "delete_txt">지우기</p>	
+ </div>
+ 
 </body>
 <script>
-$('canvas').on('scroll touchmove mousewheel', function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			return false;
-		});
+function PrintDiv(div){
+	div = div[0]
+	html2canvas(div).then(function(canvas){
+		var myImage = canvas.toDataURL();
+		downloadURI(myImage, "저장이미지이름.png") 
+	});
+}
+
+function downloadURI(uri, name){
+	var link = document.createElement("a")
+	link.download = name;
+	link.href = uri;
+	document.body.appendChild(link);
+	link.click();
+}
 </script>
 </html>
