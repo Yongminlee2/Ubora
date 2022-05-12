@@ -231,7 +231,7 @@ function tool_pencil() {
 }
 // Canvas요소 내의 좌표를 결정 한다.
 function ev_canvas(ev) {
-    event.preventDefault();
+    ev.preventDefault();
     if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
 	ev._x = ev.layerX;
 	ev._y = ev.layerY;
@@ -269,11 +269,6 @@ function onClear() {
 	context.restore();
 }
 
-$('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
-  event.preventDefault();
-  event.stopPropagation();
-  return false;
-});
 </script>
 <body>
     <!-- html body 부분 -->
