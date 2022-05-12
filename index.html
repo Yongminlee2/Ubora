@@ -275,7 +275,6 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
 });
 </script>
 <body>
-<div id="ab">
     <!-- html body 부분 -->
     <div style="padding-bottom:15px;width:100%;" id="imgSav">
         <img src="abcdef.png" alt="" srcset="">
@@ -284,7 +283,6 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
         <canvas id="drawCanvas" width="1300" height="350" style=" position: absolute;"></canvas>
         <br />
     </div>
-</div>
 <!-- 그림 저장 -->
 <div id = "picture_container" onclick = "PrintDiv();">
     <p id = "picture_txt">그림 저장</p>	
@@ -298,7 +296,9 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
 </body>
 <script>
 function PrintDiv(){
-    var div = document.querySelector('#ab');
+    $('#picture_container').toggle();
+    $('#delete_container').toggle();
+    var div = document.querySelector('body');
 	html2canvas(div).then(function(abcdf){
 		var myImage = abcdf.toDataURL();
 		downloadURI(myImage, "저장이미지이름.png") 
@@ -310,6 +310,8 @@ function downloadURI(uri, name){
 	link.download = name;
 	link.href = uri;
 	document.body.appendChild(link);
+    $('#picture_container').toggle();
+    $('#delete_container').toggle();
 	link.click();
 }
 </script>
