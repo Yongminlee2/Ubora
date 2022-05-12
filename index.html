@@ -274,40 +274,42 @@ function onClear() {
     <!-- html body 부분 -->
     <div style="padding-bottom:15px;width:100%;" id="imgSav">
         <img src="abcdef.png" alt="" srcset="">
-        <span style="font-weight:bold;"></span>
+        
         <br />
-        <canvas id="drawCanvas" width="1300" height="350" style=" position: absolute;"></canvas>
+        <canvas id="drawCanvas" width="1300" height="350" style="border:1px solid black; position: absolute;"></canvas>
         <br />
     </div>
-<!-- 그림 저장 -->
-<div id = "picture_container" onclick = "PrintDiv();">
-    <p id = "picture_txt">그림 저장</p>	
- </div>
- 
- <!-- 사인 지우기 -->
- <div id = "delete_container" onclick="context.clearRect(0, 0, canvas.width, canvas.height);">
-    <p id = "delete_txt">지우기</p>	
- </div>
- 
+<div id="hideShow">
+    <div style="font-weight:bold;">이름 적는란에 터치하여 선을 그려보고 잘나오면 그떄부터 작성하여주세여</div>
+    <!-- 그림 저장 -->
+    <div id = "picture_container" onclick = "PrintDiv();">
+        <p id = "picture_txt">그림 저장</p>	
+    </div>
+    
+    <!-- 사인 지우기 -->
+    <div id = "delete_container" onclick="context.clearRect(0, 0, canvas.width, canvas.height);">
+        <p id = "delete_txt">지우기</p>	
+    </div>
+</div>
 </body>
 <script>
 function PrintDiv(){
-    $('#picture_container').toggle();
-    $('#delete_container').toggle();
+    $('#hideShow').toggle();
+    $('canvas').css('border','0px');
     var div = document.querySelector('body');
 	html2canvas(div).then(function(abcdf){
-		var myImage = abcdf.toDataURL();
+        var myImage = abcdf.toDataURL();
 		downloadURI(myImage, "저장이미지이름.png") 
 	});
 }
 
 function downloadURI(uri, name){
-	var link = document.createElement("a")
+    var link = document.createElement("a")
 	link.download = name;
 	link.href = uri;
 	document.body.appendChild(link);
-    $('#picture_container').toggle();
-    $('#delete_container').toggle();
+    $('#hideShow').toggle();
+    $('canvas').css('border','1px');
 	link.click();
 }
 </script>
