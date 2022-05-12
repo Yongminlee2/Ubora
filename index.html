@@ -274,16 +274,17 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
   return false;
 });
 </script>
-
-<!-- html body 부분 -->
-<div style="padding-bottom:15px;width:100%;" id="imgSav">
-    <img src="abcdef.png" alt="" srcset="">
-    <span style="font-weight:bold;"></span>
-    <br />
-    <canvas id="drawCanvas" width="1300" height="350" style=" position: absolute;"></canvas>
-    <br />
+<body>
+<div id="ab">
+    <!-- html body 부분 -->
+    <div style="padding-bottom:15px;width:100%;" id="imgSav">
+        <img src="abcdef.png" alt="" srcset="">
+        <span style="font-weight:bold;"></span>
+        <br />
+        <canvas id="drawCanvas" width="1300" height="350" style=" position: absolute;"></canvas>
+        <br />
+    </div>
 </div>
-
 <!-- 그림 저장 -->
 <div id = "picture_container" onclick = "PrintDiv();">
     <p id = "picture_txt">그림 저장</p>	
@@ -297,7 +298,7 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
 </body>
 <script>
 function PrintDiv(){
-    var div = document.querySelector('#imgSav');
+    var div = document.querySelector('#ab');
 	html2canvas(div).then(function(abcdf){
 		var myImage = abcdf.toDataURL();
 		downloadURI(myImage, "저장이미지이름.png") 
