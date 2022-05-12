@@ -285,7 +285,7 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
 </div>
 
 <!-- 그림 저장 -->
-<div id = "picture_container" onclick = "PrintDiv(this);">
+<div id = "picture_container" onclick = "PrintDiv();">
     <p id = "picture_txt">그림 저장</p>	
  </div>
  
@@ -296,10 +296,10 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
  
 </body>
 <script>
-function PrintDiv(div){
-	div = div[0]
-	html2canvas(div).then(function(canvas){
-		var myImage = canvas.toDataURL();
+function PrintDiv(){
+    var div = document.querySelector('#imgSav');
+	html2canvas(div).then(function(abcdf){
+		var myImage = abcdf.toDataURL();
 		downloadURI(myImage, "저장이미지이름.png") 
 	});
 }
