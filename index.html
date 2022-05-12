@@ -16,6 +16,8 @@
     <!-- Jquery CDN 로드 : 항상 최신 버전 사용 -->
     <script  src="jquery-1.10.1.min.js"></script>
     <script  src="html2canvas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
     
     <style>
 
@@ -283,7 +285,7 @@ $('#drawCanvas').on('scroll touchmove mousewheel', function(event) {
 </div>
 
 <!-- 그림 저장 -->
-<div id = "picture_container" onclick = "savePicture(this);">
+<div id = "picture_container" onclick = "PrintDiv(this);">
     <p id = "picture_txt">그림 저장</p>	
  </div>
  
