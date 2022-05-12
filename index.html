@@ -280,7 +280,8 @@ function onClear() {
         <br />
     </div>
 <div id="hideShow">
-    <div style="font-weight:bold;">이름 적는란에 터치하여 선을 그려보고 잘나오면 그떄부터 작성하여주세여</div>
+    <div style="font-weight:bold; font-size:16px; text-align: center; margin-top:10px;">이름 적는란에 터치하여 선을 그려보고 잘나오면 그떄부터 작성하여주세여.</div>
+    <div style="font-weight:bold; font-size:16px; text-align: center;">핸드폰을 가로모드로 하여 적으시면 조금더 편하십니다.</div>
     <!-- 그림 저장 -->
     <div id = "picture_container" onclick = "PrintDiv();">
         <p id = "picture_txt">그림 저장</p>	
@@ -299,7 +300,7 @@ function PrintDiv(){
     var div = document.querySelector('body');
 	html2canvas(div).then(function(abcdf){
         var myImage = abcdf.toDataURL();
-		downloadURI(myImage, "저장이미지이름.png") 
+		downloadURI(myImage, "임예협 동의서.png") 
 	});
 }
 
