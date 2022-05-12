@@ -216,6 +216,7 @@ function tool_pencil() {
     };
     // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
     this.touchmove = function (ev) {
+        ev.preventDefault();
 	if (tool.started) {
 	    context.lineTo(ev._x, ev._y);
 	    context.stroke();
@@ -231,7 +232,6 @@ function tool_pencil() {
 }
 // Canvas요소 내의 좌표를 결정 한다.
 function ev_canvas(ev) {
-    ev.preventDefault();
     if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
 	ev._x = ev.layerX;
 	ev._y = ev.layerY;
