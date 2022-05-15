@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  
+    Document Title
+    =============================================
+    -->
+  <title>Titan | Multipurpose HTML5 Template</title>
+  <!--  
+    Favicons
+    =============================================
+    -->
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <script src="jquery-1.10.1.min.js"></script>
+  <script src="html2canvas.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+  <!--  
+    Stylesheets
+    =============================================
+    
+    -->
+  <!-- Default stylesheets-->
+  <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Template specific stylesheets-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+  <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+  <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+  <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+  <!-- Main stylesheet and color file-->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+  <style>
+    .font_pdf{
+      width: 1623px;
+      font-size:26px;
+      left:500px;
+      bottom:187px;
+      position:absolute;
+      color:black;
+
+    }
+    .font_pdf2{
+      position: absolute;
+    bottom: -171px;
+    font-size: 32px;
+    font-weight: bold;
+    left: 181px;
+}
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+  <main>
+    <div class="page-loader">
+      <div class="loader">Loading...</div>
+    </div>
+    <!--메뉴바-->
+    <!--
+      <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Titan</a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#totop">Home</a></li>
+              <li><a class="section-scroll" href="#services">Services</a></li>
+              <li><a class="section-scroll" href="#works">Works</a></li>
+              <li><a class="section-scroll" href="#alt-features">Features</a></li>
+              <li><a class="section-scroll" href="#team">Team</a></li>
+              <li><a class="section-scroll" href="#pricing">Prices</a></li>
+              <li><a class="section-scroll" href="#news">News</a></li>
+              <li><a class="section-scroll" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      -->
+
+    <section class="home-section home-full-height bg-dark bg-gradient" id="section1"
+      data-background="assets/images/uboraMain.jpg">
+      <div class="titan-caption">
+        <div class="caption-content">
+          <div class="font-alt mb-30 titan-title-size-1">오창 반도 유보라 입주예정 협의회</div>
+          <div class="font-alt mb-40 titan-title-size-4">위임 동의서</div>
+          <div class="font-alt mb-40 titan-title-size-4"></div><a class="section-scroll btn btn-border-w btn-round"
+            onclick="sectionFn(2);">신청</a>
+        </div>
+      </div>
+    </section>
+    <div class="main">
+      <section class="module" id="section2" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt">위임동의로 인하여 증진될수있는 요소</h2>
+              <div class="module-subtitle font-serif">이 서비스는 자동으로 위임동의 신청이 되는게 아닌 위임동의서의 파일을 보조하여 만드는 서비스 입니다.</div>
+            </div>
+          </div>
+          <div class="row multi-columns-row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-lightbulb"></span></div>
+                <h3 class="features-title font-alt">정보공유</h3>
+                <p>오창 반도유보라의 정보공유를 위한 모임 (가구．가전 공동구매)</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-bike"></span></div>
+                <h3 class="features-title font-alt">이동수단 편의시설</h3>
+                <p>자동차 주차유도등, 경차 , 전기차, 장애인주차구역 위치, 자전거 주차시설 위치 선정</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-tools"></span></div>
+                <h3 class="features-title font-alt">주택 등기 무료&할인</h3>
+                <p>위임동의서를 신청한분에 한애 등기비 무료, 일정기간이 지나서 신청하신분에대헤선 일부 할인</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-gears"></span></div>
+                <h3 class="features-title font-alt">Highly customizable</h3>
+                <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all
+                  your visitors.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-tools-2"></span></div>
+                <h3 class="features-title font-alt">Coding &amp; development</h3>
+                <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all
+                  your visitors.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-genius"></span></div>
+                <h3 class="features-title font-alt">Features &amp; plugins</h3>
+                <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all
+                  your visitors.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-mobile"></span></div>
+                <h3 class="features-title font-alt">Responsive design</h3>
+                <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all
+                  your visitors.</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="features-item">
+                <div class="features-icon"><span class="icon-lifesaver"></span></div>
+                <h3 class="features-title font-alt">Dedicated support</h3>
+                <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all
+                  your visitors.</p>
+              </div>
+            </div>
+            <button class="btn btn-block btn-round btn-d" type="button" onclick="sectionFn(3)">다음</button>
+            <button class="btn btn-block btn-round btn-d" type="button" onclick="sectionFn(1)">뒤로가기</button>
+          </div>
+        </div>
+      </section>
+      <section class="module" id="section3" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt">위임동의서<br>작성 양식</h2>
+              <div class="module-subtitle font-serif"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <form id="contactForm" role="form" method="post" action="php/contact.php">
+                <div class="form-group">
+                  <label class="sr-only" for="dong">계약 동</label>
+                  <input class="form-control" type="number" id="dong" placeholder="본인의 계약 동 (101)" required="required"
+                    data-validation-required-message="동을 입력하세요." />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="ho">계약 호수</label>
+                  <input class="form-control" type="number" id="ho" placeholder="본인의 계약 호 (1001)" required="required"
+                    data-validation-required-message="호를 입력하세요." />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="cafeName">카페 닉네임</label>
+                  <input class="form-control" type="text" id="cafeName" placeholder="카페 닉네임 (dydals5678)"
+                    required="required" data-validation-required-message="카페 닉네임을 입력해주세요." />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="birthDay">계약자 생년월일</label>
+                  <input class="form-control" type="text" id="birthDay" placeholder="계약자 생년월일 (20002년2월3일)"
+                    required="required" data-validation-required-message="계약자 생년월일 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="name">계약자 성명</label>
+                  <input class="form-control" type="text" id="name" placeholder="성명 입력 (이용민)" required="required"
+                    data-validation-required-message="계약자 이름 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="birthDay2">공동 계약자 생년월일</label>
+                  <input class="form-control" type="text" id="birthDay2" placeholder="공동계약자 생년월일 (없으면 입력 x)"
+                    data-validation-required-message="공동계약자 생년월일 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="name2">공동 계약자 성명</label>
+                  <input class="form-control" type="text" id="name2" placeholder="공동계약자 성명 입력 (없으면 입력 x)"
+                    data-validation-required-message="공동계약자 이름 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="phone">연락처</label>
+                  <input class="form-control" type="phone" id="phone" placeholder="핸드폰 번호 입력 (010-4668-3954)"
+                    required="required" data-validation-required-message="계약자 핸드폰 번호 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="phone2">연락처2</label>
+                  <input class="form-control" type="phone" id="phone2" placeholder="다른 핸드폰 번호 입력 (없으면 입력 x)"
+                    required="required" data-validation-required-message="공동계약자 핸드폰 번호 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-block btn-round btn-d" type="button" onclick="sectionFn(4)">다음</button>
+                  <button class="btn btn-block btn-round btn-d" type="button" onclick="sectionFn(2)">뒤로가기</button>
+                </div>
+              </form>
+              <div class="ajax-response font-alt" id="contactFormResponse"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="module" id="section4" style="display:none;">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <h2 class="module-title font-alt">서명 생성</h2>
+              <div class="module-subtitle font-serif"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12" >
+              <canvas id="drawCanvas" width="300" height="120" style="border:1px solid black;"></canvas>
+            </div>
+          </div>
+          <div class="text-center">
+            <br>
+            <button class="btn btn-block btn-round btn-d" type="button" onclick="sectionFn(5)">다음</button>
+            <button class="btn btn-block btn-round btn-d" type="button" style="background-color: #1e90ff;" onclick="onClear()">지우기</button>
+            <button class="btn btn-block btn-round btn-d" type="button" onclick="sectionFn(3)">뒤로가기</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <section class="module" id="section5" style="display:none;">
+    <div style="padding-bottom:15px;width:100%; position: relative;" id="imgSav">
+      <img src="abcdef.png" alt="" srcset="" style="max-width: none;">
+      <div class="font_pdf">
+        <div style="line-height: 1.5">
+          <span id="dong_pdf" style="margin-right: 330px;"></span>
+          <span id="ho_pdf" style="margin-right: 300px;"></span>
+          <span id="cafeName_pdf"></span>
+        </div>
+        <div>
+          <span id="birthDay_pdf" style="margin-right: 500px;"></span>
+          <span id="name_pdf"></span>
+        </div>
+        <div>
+          <span id="birthDay2_pdf" style="margin-right: 500px;"></span>
+          <span id="name2_pdf"></span>
+        </div>
+        <div>
+          <span id="phone_pdf" style="margin-right: 500px;"></span>
+          <span id="phone2_pdf"></span>
+        </div>
+        <div class="font_pdf2">
+          <span id="year" style="margin-right: 83px;">21</span>
+          <span id="month" style="margin-right: 83px;">12</span>
+          <span id="day">31</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  
+    JavaScripts
+    =============================================
+    -->
+  <script>
+    function sectionFn(num) {
+      $("section[id^='section']").css('display', 'none');
+      $("#section" + num).css('display', 'block');
+      if(num == 5){
+        $('#dong_pdf').text($('#dong').val());
+        $('#ho_pdf').text($('#ho').val());
+        $('#cafeName_pdf').text($('#cafeName').val());
+        $('#birthDay_pdf').text($('#birthDay').val());
+        $('#birthDay2_pdf').text($('#birthDay2').val());
+        $('#name_pdf').text($('#name').val());
+        $('#name2_pdf').text($('#name2').val());
+        $('#phone_pdf').text($('#phone').val());
+        $('#phone2_pdf').text($('#phone2').val());
+
+        var today = new Date();
+        var year = today.getFullYear()-2000; 
+        var month = today.getMonth() + 1
+        var day = today.getDate();
+        $('#year').text(year);
+        $('#month').text(month);
+        $('#day').text(day);
+        PrintDiv()
+      }
+    }
+  </script>
+  <script type="text/javascript">
+    if (window.addEventListener) {
+      window.addEventListener('load', InitEvent, false);
+    }
+    var canvas, context, tool;
+    function InitEvent() {
+      canvas = document.getElementById('drawCanvas');
+      // canvas.style.width="100%";
+      // canvas.style.height="100%";
+      // canvas.width=canvas.offsetWidth;
+      // canvas.height=canvas.offsetHeight;
+      if (!canvas) {
+        alert("캔버스 객체를 찾을 수 없음");
+        return;
+      }
+      if (!canvas.getContext) {
+        alert("Drawing Contextf를 찾을 수 없음");
+        return;
+      }
+      context = canvas.getContext('2d');
+      if (!context) {
+        alert("getContext() 함수를 호출 할 수 없음");
+        return;
+      }
+      // Pencil tool 객체를 생성 한다.
+      tool = new tool_pencil();
+      canvas.addEventListener('mousedown', ev_canvas, false);
+      canvas.addEventListener('mousemove', ev_canvas, false);
+      canvas.addEventListener('mouseup', ev_canvas, false);
+      canvas.addEventListener('touchstart', ev_canvas, false);
+      canvas.addEventListener('touchmove', ev_canvas, false);
+      canvas.addEventListener('touchend', ev_canvas, false);
+    }
+    function tool_pencil() {
+      var tool = this;
+      this.started = false;
+
+      // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+      this.mousedown = function (ev) {
+        context.beginPath();
+        context.moveTo(ev._x, ev._y);
+        tool.started = true;
+      };
+      // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+      this.mousemove = function (ev) {
+        if (tool.started) {
+          context.lineTo(ev._x, ev._y);
+          context.stroke();
+        }
+      };
+      // 마우스 떼면 그리기 작업을 중단한다
+      this.mouseup = function (ev) {
+        if (tool.started) {
+          tool.mousemove(ev);
+          tool.started = false;
+        }
+      };
+
+      // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+      this.touchstart = function (ev) {
+        context.beginPath();
+        context.moveTo(ev._x, ev._y);
+        tool.started = true;
+      };
+      // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+      this.touchmove = function (ev) {
+        ev.preventDefault();
+        if (tool.started) {
+          context.lineTo(ev._x, ev._y);
+          context.stroke();
+        }
+      };
+      // 마우스 떼면 그리기 작업을 중단한다
+      this.touchend = function (ev) {
+        if (tool.started) {
+          tool.touchmove(ev);
+          tool.started = false;
+        }
+      };
+    }
+    // Canvas요소 내의 좌표를 결정 한다.
+    function ev_canvas(ev) {
+      if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
+        ev._x = ev.layerX;
+        ev._y = ev.layerY;
+      }
+      else if (ev.offsetX || ev.offsetX == 0) { // Opera 브라우저
+        ev._x = ev.offsetX;
+        ev._y = ev.offsetY;
+      }
+      else if (ev.targetTouches[0] || ev.targetTouches[0].pageX == 0) {	//핸드폰
+        var left = 0;
+        var top = 0;
+        var elem = document.getElementById('drawCanvas');
+
+        while (elem) {
+          left = left + parseInt(elem.offsetLeft);
+          top = top + parseInt(elem.offsetTop);
+          elem = elem.offsetParent;
+        }
+
+        ev._x = ev.targetTouches[0].pageX - left;
+        ev._y = ev.targetTouches[0].pageY - top;
+      }
+
+      // tool의 이벤트 핸들러를 호출한다.
+      var func = tool[ev.type];
+      if (func) {
+        func(ev);
+      }
+    }
+
+    function onClear() {
+      canvas = document.getElementById('drawCanvas');
+      context.save();
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.restore();
+    }
+
+    function PrintDiv(){
+        var div = document.querySelector('body');
+      html2canvas(div).then(function(abcdf){
+            var myImage = abcdf.toDataURL();
+        downloadURI(myImage, "임예협 동의서.png") 
+      });
+    }
+
+    function downloadURI(uri, name){
+        var link = document.createElement("a")
+      link.download = name;
+      link.href = uri;
+      document.body.appendChild(link);
+        $('#hideShow').toggle();
+        $('canvas').css('border','1px');
+      link.click();
+    }
+  </script>
+
+
+  <script src="assets/lib/jquery/dist/jquery.js"></script>
+  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="assets/lib/wow/dist/wow.js"></script>
+  <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+  <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
+  <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
+  <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="assets/lib/smoothscroll.js"></script>
+  <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+  <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

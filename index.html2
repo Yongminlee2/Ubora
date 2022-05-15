@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<!-- 자바스크립트 차단된 콘텐츠 자동 허용 실시 -->
+<!-- saved from url=(0013)about:internet -->
+
+<!-- 표시 언어 지정 -->
+<html lang="ko">
+
+<!-- 헤더 정의 부분 -->
+<head>
+    <title>HTML TEST</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Jquery CDN 로드 : 항상 최신 버전 사용 -->
+    <script  src="jquery-1.10.1.min.js"></script>
+    <script  src="html2canvas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
+    
+    <style>
+
+        canvas{z-index: 999;
+                top: 1988px;
+                left: 333px;
+            }
+   
+
+
+
+            #url_txt {   
+        /* 텍스트 가로 정렬 지정 */
+        text-align : center; 
+
+        /* 텍스트 색상 지정 */
+        color : #ffffff;
+
+        /* 텍스트 굵기 지정 */
+        font-weight : bold;
+               
+        /* 텍스트 사이즈 지정 */ 
+        font-size : 150%;
+
+        /* 텍스트 수직 정렬 실시 */
+        display : table-cell;
+        vertical-align : middle;
+      }
+
+
+
+
+      #picture_container {   
+        width : 70%;
+        height : 10%;
+        margin : 0 auto;
+        padding : 20px;
+        border : none;
+        background-color : #339933; 
+        margin-bottom: 20px;
+        /* 컨테이너 배치 정렬 실시 */
+        float : top;
+        position : relative; 
+        top : 14%;
+        left : 0%;
+         
+        /* 마우스 커서 스타일 지정 */
+        cursor : pointer;   
+
+        /* 브라우저에서 화면 터치 시 파란박스 하이라이트 제거 */
+        -webkit-tap-highlight-color : rgba(0,0,0,0);         
+
+        /* div 테두리 영역 둥글게 설정 : 각 모서리 모두 동일 적용 : 일반 설정 */
+        border-radius : 20px;
+
+        /* display 설정 : p 태그 수직 정렬 */
+		display : table;
+      }
+
+
+
+
+      #picture_txt {   
+        /* 텍스트 가로 정렬 지정 */
+        text-align : center; 
+
+        /* 텍스트 색상 지정 */
+        color : #ffffff;
+
+        /* 텍스트 굵기 지정 */
+        font-weight : bold;
+               
+        /* 텍스트 사이즈 지정 */ 
+        font-size : 150%;
+
+        /* 텍스트 수직 정렬 실시 */
+        display : table-cell;
+        vertical-align : middle;
+      }
+
+
+
+
+      #delete_container {   
+        width : 70%;
+        height : 10%;
+        margin : 0 auto;
+        padding : 20px;
+        border : none;
+        background-color : #ff00ff; 
+        margin-bottom:50px;
+        /* 컨테이너 배치 정렬 실시 */
+        float : top;
+        position : relative; 
+        top : 15%;
+        left : 0%;
+         
+        /* 마우스 커서 스타일 지정 */
+        cursor : pointer;   
+
+        /* 브라우저에서 화면 터치 시 파란박스 하이라이트 제거 */
+        -webkit-tap-highlight-color : rgba(0,0,0,0);         
+
+        /* div 테두리 영역 둥글게 설정 : 각 모서리 모두 동일 적용 : 일반 설정 */
+        border-radius : 20px;
+
+        /* display 설정 : p 태그 수직 정렬 */
+		display : table;
+      }
+
+
+
+
+      #delete_txt {   
+        /* 텍스트 가로 정렬 지정 */
+        text-align : center; 
+
+        /* 텍스트 색상 지정 */
+        color : #ffffff;
+
+        /* 텍스트 굵기 지정 */
+        font-weight : bold;
+               
+        /* 텍스트 사이즈 지정 */ 
+        font-size : 150%;
+
+        /* 텍스트 수직 정렬 실시 */
+        display : table-cell;
+        vertical-align : middle;
+      }   
+            
+        
+    </style>
+</head>
+
+   <!-- 스크립트 부분 -->
+<script type="text/javascript">
+if (window.addEventListener) {
+    window.addEventListener('load', InitEvent, false);
+}
+var canvas, context, tool;
+function InitEvent() {
+    canvas = document.getElementById('drawCanvas');
+    if (!canvas) {
+	alert("캔버스 객체를 찾을 수 없음");
+	return;
+    }
+    if (!canvas.getContext) {
+	alert("Drawing Contextf를 찾을 수 없음");
+	return;
+    }
+    context = canvas.getContext('2d');
+    if (!context) {
+	alert("getContext() 함수를 호출 할 수 없음");
+	return;
+    }
+    // Pencil tool 객체를 생성 한다.
+    tool = new tool_pencil();
+    canvas.addEventListener('mousedown', ev_canvas, false);
+    canvas.addEventListener('mousemove', ev_canvas, false);
+    canvas.addEventListener('mouseup', ev_canvas, false);
+    canvas.addEventListener('touchstart', ev_canvas, false);
+    canvas.addEventListener('touchmove', ev_canvas, false);
+    canvas.addEventListener('touchend', ev_canvas, false);
+}
+function tool_pencil() {
+    var tool = this;
+    this.started = false;
+
+    // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+    this.mousedown = function (ev) {
+	context.beginPath();
+	context.moveTo(ev._x, ev._y);
+	tool.started = true;
+    };
+    // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+    this.mousemove = function (ev) {
+	if (tool.started) {
+	    context.lineTo(ev._x, ev._y);
+	    context.stroke();
+	}
+    };
+    // 마우스 떼면 그리기 작업을 중단한다
+    this.mouseup = function (ev) {
+	if (tool.started) {
+	    tool.mousemove(ev);
+	    tool.started = false;
+	}
+    };
+
+    // 마우스를 누르는 순간 그리기 작업을 시작 한다. 
+    this.touchstart = function (ev) {
+	context.beginPath();
+	context.moveTo(ev._x, ev._y);
+	tool.started = true;
+    };
+    // 마우스가 이동하는 동안 계속 호출하여 Canvas에 Line을 그려 나간다
+    this.touchmove = function (ev) {
+        ev.preventDefault();
+	if (tool.started) {
+	    context.lineTo(ev._x, ev._y);
+	    context.stroke();
+	}
+    };
+    // 마우스 떼면 그리기 작업을 중단한다
+    this.touchend = function (ev) {
+	if (tool.started) {
+	    tool.touchmove(ev);
+	    tool.started = false;
+	}
+    };
+}
+// Canvas요소 내의 좌표를 결정 한다.
+function ev_canvas(ev) {
+    if (ev.layerX || ev.layerX == 0) { // Firefox 브라우저
+	ev._x = ev.layerX;
+	ev._y = ev.layerY;
+    }
+    else if (ev.offsetX || ev.offsetX == 0) { // Opera 브라우저
+	ev._x = ev.offsetX;
+	ev._y = ev.offsetY;
+    }
+    else if (ev.targetTouches[0] || ev.targetTouches[0].pageX == 0) {	//핸드폰
+	var left = 0;
+	var top = 0;
+	var elem = document.getElementById('drawCanvas');
+
+	while (elem) {
+	    left = left + parseInt(elem.offsetLeft);
+	    top = top + parseInt(elem.offsetTop);
+	    elem = elem.offsetParent;
+	}
+
+	ev._x = ev.targetTouches[0].pageX - left;
+	ev._y = ev.targetTouches[0].pageY - top;
+    }
+    // tool의 이벤트 핸들러를 호출한다.
+    var func = tool[ev.type];
+    if (func) {
+	func(ev);
+    }
+}
+
+function onClear() {
+    canvas = document.getElementById('drawCanvas');
+    context.save();
+	context.setTransform(1, 0, 0, 1, 0, 0);
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.restore();
+}
+
+</script>
+<body>
+    <!-- html body 부분 -->
+    <div style="padding-bottom:15px;width:100%;" id="imgSav">
+        <img src="abcdef.png" alt="" srcset="">
+        
+        <br />
+        <canvas id="drawCanvas" width="1300" height="350" style="border:1px solid black; position: absolute;"></canvas>
+        <br />
+    </div>
+<div id="hideShow">
+    <div style="font-weight:bold; font-size:16px; text-align: center; margin-top:10px;">이름 적는란에 터치하여 선을 그려보고 잘나오면 그떄부터 작성하여주세여.</div>
+    <div style="font-weight:bold; font-size:16px; text-align: center;">핸드폰을 가로모드로 하여 적으시면 조금더 편하십니다.</div>
+    <!-- 그림 저장 -->
+    <div id = "picture_container" onclick = "PrintDiv();">
+        <p id = "picture_txt">그림 저장</p>	
+    </div>
+    
+    <!-- 사인 지우기 -->
+    <div id = "delete_container" onclick="context.clearRect(0, 0, canvas.width, canvas.height);">
+        <p id = "delete_txt">지우기</p>	
+    </div>
+</div>
+</body>
+<script>
+function PrintDiv(){
+    $('#hideShow').toggle();
+    $('canvas').css('border','0px');
+    var div = document.querySelector('body');
+	html2canvas(div).then(function(abcdf){
+        var myImage = abcdf.toDataURL();
+		downloadURI(myImage, "임예협 동의서.png") 
+	});
+}
+
+function downloadURI(uri, name){
+    var link = document.createElement("a")
+	link.download = name;
+	link.href = uri;
+	document.body.appendChild(link);
+    $('#hideShow').toggle();
+    $('canvas').css('border','1px');
+	link.click();
+}
+</script>
+</html>
