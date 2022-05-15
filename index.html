@@ -304,6 +304,7 @@
           <span id="day">31</span>
         </div>
       </div>
+      <img id="canvas_img_sign" src="" alt="" srcset="" style="position: absolute; bottom: 263px; right: -1px; width: 200px;">
     </div>
   </section>
   <!--  
@@ -332,6 +333,8 @@
         $('#year').text(year);
         $('#month').text(month);
         $('#day').text(day);
+        var myImage = document.getElementById('canvas_img_sign');
+        myImage.src = canvas.toDataURL();
         PrintDiv()
       }
     }
