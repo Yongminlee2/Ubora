@@ -279,7 +279,7 @@
       </section>
     </div>
   </main>
-  <section class="module" id="section5" style="display:none;">
+  <section class="module" id="section5" style="display:none; width:1623px;">
     <div style="padding-bottom:15px;width:100%; position: relative;" id="imgSav">
       <img src="abcdef.png" alt="" srcset="" style="max-width: none;">
       <div class="font_pdf">
@@ -349,7 +349,13 @@
         $('#year').text(year);
         $('#month').text(month);
         $('#day').text(day);
-        var myImage = document.getElementById('canvas_img_sign2');
+        var str = '';
+        if($('#name2').val() == ''){
+          str = 'canvas_img_sign';
+        }else{
+          str = 'canvas_img_sign2';
+        }
+        var myImage = document.getElementById(str);
         myImage.src = canvas.toDataURL();
         PrintDiv()
       }
@@ -478,10 +484,10 @@
     }
 
     function PrintDiv(){
-        var div = document.querySelector('body');
+        var div = document.querySelector('#section5');
       html2canvas(div).then(function(abcdf){
             var myImage = abcdf.toDataURL();
-        downloadURI(myImage, "임예협 동의서.png") 
+        downloadURI(myImage, "Ubora_agreement.png") 
       });
     }
 
