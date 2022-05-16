@@ -9,7 +9,7 @@
     Document Title
     =============================================
     -->
-  <title>Titan | Multipurpose HTML5 Template</title>
+  <title>Ubora | 반도유보라 입예협 위임 동의서</title>
   <!--  
     Favicons
     =============================================
@@ -59,8 +59,10 @@
     font-size: 32px;
     font-weight: bold;
     left: 181px;
-}
-    }
+  }
+    .btn{
+      margin-bottom:15px;
+    }  
   </style>
 </head>
 
@@ -210,7 +212,7 @@
                 </div>
                 <div class="form-group">
                   <label class="sr-only" for="birthDay">계약자 생년월일</label>
-                  <input class="form-control" type="text" id="birthDay" placeholder="계약자 생년월일 (20002년2월3일)"
+                  <input class="form-control" type="text" id="birthDay" placeholder="계약자 생년월일 (2002년2월3일)"
                     required="required" data-validation-required-message="계약자 생년월일 입력" />
                   <p class="help-block text-danger"></p>
                 </div>
@@ -218,6 +220,12 @@
                   <label class="sr-only" for="name">계약자 성명</label>
                   <input class="form-control" type="text" id="name" placeholder="성명 입력 (이용민)" required="required"
                     data-validation-required-message="계약자 이름 입력" />
+                  <p class="help-block text-danger"></p>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="tel">연락처</label>
+                  <input class="form-control" type="tel" id="phone" placeholder="핸드폰 번호 입력 (010-4668-3954)"
+                    required="required" data-validation-required-message="계약자 핸드폰 번호 입력" />
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
@@ -233,14 +241,8 @@
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
-                  <label class="sr-only" for="phone">연락처</label>
-                  <input class="form-control" type="phone" id="phone" placeholder="핸드폰 번호 입력 (010-4668-3954)"
-                    required="required" data-validation-required-message="계약자 핸드폰 번호 입력" />
-                  <p class="help-block text-danger"></p>
-                </div>
-                <div class="form-group">
                   <label class="sr-only" for="phone2">연락처2</label>
-                  <input class="form-control" type="phone" id="phone2" placeholder="다른 핸드폰 번호 입력 (없으면 입력 x)"
+                  <input class="form-control" type="tel" id="phone2" placeholder="다른 핸드폰 번호 입력 (없으면 입력 x)"
                     required="required" data-validation-required-message="공동계약자 핸드폰 번호 입력" />
                   <p class="help-block text-danger"></p>
                 </div>
@@ -258,7 +260,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-              <h2 class="module-title font-alt">서명 생성</h2>
+              <h2 class="module-title font-alt"><span id="register"></span>계약자 서명 생성</h2>
               <div class="module-subtitle font-serif"></div>
             </div>
           </div>
@@ -304,6 +306,7 @@
           <span id="day">31</span>
         </div>
         <img id="canvas_img_sign" src="" alt="" srcset="" style="position: absolute; bottom: 79px;left: 891px; width: 150px;max-width: none;">
+        <img id="canvas_img_sign2" src="" alt="" srcset="" style="position: absolute; bottom: 40px;left: 891px; width: 150px;max-width: none;">
     </div>
     </div>
   </section>
@@ -313,9 +316,21 @@
     -->
   <script>
     function sectionFn(num) {
+      if(num == 5 && $('#register').text() == '' &&  $('#name2').val() != ''){
+        $('#register').text('공동');
+        var myImage = document.getElementById('canvas_img_sign');
+        myImage.src = canvas.toDataURL();
+        onClear();
+        return false;
+      }
+      if(num == 4){
+        $('#register').text('');
+        onClear();
+      }
+
       $("section[id^='section']").css('display', 'none');
       $("#section" + num).css('display', 'block');
-      if(num == 5){
+      if(num == 5 && $('#register').text() != ''){
         $('#dong_pdf').text($('#dong').val());
         $('#ho_pdf').text($('#ho').val());
         $('#cafeName_pdf').text($('#cafeName').val());
@@ -333,10 +348,12 @@
         $('#year').text(year);
         $('#month').text(month);
         $('#day').text(day);
-        var myImage = document.getElementById('canvas_img_sign');
+        var myImage = document.getElementById('canvas_img_sign2');
         myImage.src = canvas.toDataURL();
         PrintDiv()
       }
+
+
     }
   </script>
   <script type="text/javascript">
@@ -472,8 +489,6 @@
       link.download = name;
       link.href = uri;
       document.body.appendChild(link);
-        $('#hideShow').toggle();
-        $('canvas').css('border','1px');
       link.click();
     }
   </script>
