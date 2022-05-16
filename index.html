@@ -330,7 +330,8 @@
 
       $("section[id^='section']").css('display', 'none');
       $("#section" + num).css('display', 'block');
-      if(num == 5 && $('#register').text() != ''){
+      
+      if(num == 5 && ($('#register').text() != ''|| ('#name2').val() == '')){
         $('#dong_pdf').text($('#dong').val());
         $('#ho_pdf').text($('#ho').val());
         $('#cafeName_pdf').text($('#cafeName').val());
