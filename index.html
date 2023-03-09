@@ -332,8 +332,8 @@
       $("#section" + num).css('display', 'block');
       
       if(num == 5 && ($('#register').text() != ''|| $('#name2').val() == '')){
-        $('#dong_pdf').text($('#dong').val());
-        $('#ho_pdf').text($('#ho').val());
+        $('#dong_pdf').text(parseInt($('#dong').val()));
+        $('#ho_pdf').text(parseInt($('#ho').val()));
         $('#cafeName_pdf').text($('#cafeName').val());
         $('#birthDay_pdf').text($('#birthDay').val());
         $('#birthDay2_pdf').text($('#birthDay2').val());
