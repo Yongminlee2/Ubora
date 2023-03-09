@@ -194,13 +194,13 @@
               <form id="contactForm" role="form" method="post" action="php/contact.php">
                 <div class="form-group">
                   <label class="sr-only" for="dong">계약 동</label>
-                  <input class="form-control" type="number" id="dong" placeholder="본인의 계약 동 (101)" required="required"
+                  <input class="form-control" type="number" pattern="\d*" id="dong" placeholder="본인의 계약 동 (101)" required="required"
                     data-validation-required-message="동을 입력하세요." />
                   <p class="help-block text-danger"></p>
                 </div>
                 <div class="form-group">
                   <label class="sr-only" for="ho">계약 호수</label>
-                  <input class="form-control" type="number" id="ho" placeholder="본인의 계약 호 (1001)" required="required"
+                  <input class="form-control" type="number" pattern="\d*" id="ho" placeholder="본인의 계약 호 (1001)" required="required"
                     data-validation-required-message="호를 입력하세요." />
                   <p class="help-block text-danger"></p>
                 </div>
