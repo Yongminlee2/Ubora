@@ -284,20 +284,20 @@
       <img src="abcdef.png" alt="" srcset="" style="max-width: none;">
       <div class="font_pdf">
         <div>
-          <span id="dong_pdf"></span>
+          <span id="dong_pdf" style="position:absolute; bottom:138px;"></span>
           <span id="ho_pdf" style="position:absolute; left:400px; bottom:138px;"></span>
           <span id="cafeName_pdf" style="position:absolute; left:800px; bottom:138px;"></span>
         </div>
         <div>
-          <span id="birthDay_pdf"></span>
+          <span id="birthDay_pdf" style="position:absolute; bottom:93px;"></span>
           <span id="name_pdf" style="position:absolute; left:600px; bottom:93px;"></span>
         </div>
         <div>
-          <span id="birthDay2_pdf"></span>
+          <span id="birthDay2_pdf" style="position:absolute; bottom:48px;"></span>
           <span id="name2_pdf" style="position:absolute; left:600px; bottom:48px;"></span>
         </div>
         <div>
-          <span id="phone_pdf"></span>
+          <span id="phone_pdf" style="position:absolute; bottom:3px;"></span>
           <span id="phone2_pdf" style="position:absolute; left:600px; bottom:3px;"></span>
         </div>
         <div class="font_pdf2">
@@ -332,8 +332,8 @@
       $("#section" + num).css('display', 'block');
       
       if(num == 5 && ($('#register').text() != ''|| $('#name2').val() == '')){
-        $('#dong_pdf').text(parseInt($('#dong').val()));
-        $('#ho_pdf').text(parseInt($('#ho').val()));
+        $('#dong_pdf').text($('#dong').val());
+        $('#ho_pdf').text($('#ho').val());
         $('#cafeName_pdf').text($('#cafeName').val());
         $('#birthDay_pdf').text($('#birthDay').val());
         $('#birthDay2_pdf').text($('#birthDay2').val());
